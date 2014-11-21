@@ -1,0 +1,94 @@
+/*----------------------------------------
+
+	STRUCTURE
+
+----------------------------------------*/
+
+@import "fonts/fonts";
+
+// Config settings and variables
+@import "config/settings";
+@import "config/variables";
+
+// Animations
+@import "animations/keyframes";
+
+// Mixins
+@import "mixins/hacks";
+@import "mixins/media-queries";
+@import "mixins/opacity";
+@import "mixins/prefixes";
+@import "mixins/retina";
+@import "mixins/sprite";
+
+// Extensions
+@import "extensions/img-replace";
+@import "extensions/sprite-transition";
+
+// Framework
+@import "framework/grid";
+
+// Elements
+
+// Components
+@import "components/header";
+@import "components/content";
+@import "components/box";
+
+/*
+	Global
+---------------*/
+* {
+	@include box-sizing(border-box);
+}
+
+html,
+body,
+.wrapper {
+	height: 100%;
+	width: 100%;
+}
+
+/*
+	Body
+----------------*/
+
+body {
+	font: #{($base-font-size / 16px) * 1em} / #{$line-height-ratio} $base-font-family;
+	margin: 0;
+
+	-webkit-text-size-adjust: none; // stops the text from becoming bigger on orientation on iPhone / iPad devices
+	  -webkit-font-smoothing: antialiased; // makes the font smooth on webkit devices
+}
+
+/*
+	Wrappers / Containers
+----------------------------*/
+.wrapper {
+	letter-spacing: normal;
+	max-width: $wrapper-width;
+
+	@if ($MQs) == false {
+		min-width: 60em; // when we are doing a desktop build need to include our min-width as 60em! This is the default that devices read, any bigger then will have to scroll
+	}
+}
+
+.container {
+	margin: auto;
+	max-width: $container-width;
+	padding: $container-padding;
+}
+
+/*
+	Typography
+-------------------*/
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+}
+
+/*
+	Imagery
+----------------*/
+img {
+	border: none;
+}

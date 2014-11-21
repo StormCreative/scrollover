@@ -1,0 +1,151 @@
+/*----------------------------------------
+
+	BOX
+
+----------------------------------------*/
+
+.box-wrap {
+	letter-spacing: -0.32em;
+	margin: 1em -2em; // 16px -32px
+	text-align: center;
+}
+
+/**
+	Box
+----------*/
+.box {
+	display: inline-block;
+	letter-spacing: normal;
+	padding: 1em; // 16px
+	max-width: 320px;
+	vertical-align: top;
+	width: 100%;
+
+	@include bp(tablet) {
+		text-align: center;
+		width: 50%;
+	}
+
+	@include bp(desktop) {
+		max-width: 100%; // overwrite above style
+		width: 33.3333%;
+	}
+}
+
+/**
+	Box link
+---------------*/
+.box-link {
+	display: block;
+	height: 298px;
+	line-height: 298px;
+	margin: auto;
+	overflow: hidden;
+	//padding: 1em; // 16px
+	position: relative;
+	text-decoration: none;
+	z-index: 0;
+
+	@include transition(0.3s linear);
+
+	@include bp(desktop) {
+		height: 320px;
+		line-height: 320px;
+		width: 320px;
+	}
+
+	// Add an overlay that will fade in once hovered
+	&:before {
+		background: rgba(0, 0, 0, 0.6); // The overlay colour in rgba format
+		content: '';
+		z-index: 1;
+
+		@include opacity(0.6);
+		@include transition(0.3s linear);
+
+		// Positioning
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		top: 0;
+	}
+
+	// Hovers
+	&:hover {
+		&:before {
+			background: rgba(32, 32, 32, 0.6); // The overlay colour in rgba format
+			@include opacity(1); // Fade in overlay
+		}
+
+		.box__img {
+			@include transform(scale(1.2)); // Scale image to be larger - adjust for different sizing 
+		}
+
+		.box__text {
+			//display: block;
+			@include opacity(1);
+		}
+	}
+}
+
+/**
+	Image held in the box
+---------------------------*/
+.box__img {
+	line-height: normal;
+	z-index: -1; // Position behind the box so will need exceed and appear outside but also to be behind all other content
+
+	@include transform(scale(1));
+	@include transition(0.6s linear);
+
+	// Positioning
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	top: 0;
+}
+
+/**
+	Box content
+---------------------------*/
+.box-content {
+	color: #FFF;
+	display: inline-block;
+	line-height: normal;
+	padding: 1em; // 16px
+	position: relative;
+	vertical-align: top;
+	z-index: 1;
+}
+
+.box-content--top {
+	vertical-align: top;
+}
+
+.box-content--middle {
+	vertical-align: middle;
+}
+
+.box-content--bottom {
+	vertical-align: bottom;
+}
+
+/**
+	Box title
+----------------*/
+.box__title {
+	border-bottom: 2px solid #FFF;
+	display: inline-block;
+	font-size: 1.5em; // 24px
+	margin: 0;
+	padding: 0.5em 0; // 12px
+}
+
+.box__text {
+	line-height: 1.5;
+
+	@include opacity(0);
+	@include transition(0.4s linear);
+}

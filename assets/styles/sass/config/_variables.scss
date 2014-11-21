@@ -1,0 +1,27 @@
+/*----------------------------------------
+
+	CONFIG = STYLES VARIABLES
+
+----------------------------------------*/
+
+//Brand
+$brand-colour: #E51515;
+
+// Base
+$base-font-family: arial;
+$base-font-size: 16px;
+$line-height-ratio: 1.4;
+
+// Grid margin gaps between each column
+$grid-margin: 8px;
+
+// Nav settings
+
+// Headers
+$alternate-height: false !default;
+$alternate-height-value: 90% !default;
+
+// Containers
+$container-padding: 0;
+$container-width: 1056px !default;
+$wrapper-width: 100% !default;
